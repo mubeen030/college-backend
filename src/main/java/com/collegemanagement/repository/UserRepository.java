@@ -1,10 +1,16 @@
 package com.collegemanagement.repository;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import com.collegemanagement.model.User;
 
+
+
 public interface UserRepository extends MongoRepository<User, String> {
 
-    // Optional helper for login
-    User findByUsername(String username);
+    Optional<User> findByUsername(String username);
+
 }
+
+
+

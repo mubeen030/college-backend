@@ -17,14 +17,20 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
+public String login(@RequestBody LoginRequest request) {
 
-        User user = userRepository.findAll().stream()
-                .filter(u -> u.getUsername().equals(request.username)
-                        && u.getPassword().equals(request.password))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+    User user = userRepository.findByUsername(request.username)
+            .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return JwtUtil.generateToken(user.getUsername(), user.getRole().name());
+    if (!user.getPassword().equals(request.password)) {
+        throw new RuntimeException("Invalid password");
     }
+
+    // include USER ID in token (VERY IMPORTANT)
+   return JwtUtil.generateToken(user.getUsername(), user.getRole().name());
+
+}
+
+
+
 }

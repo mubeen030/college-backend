@@ -14,64 +14,30 @@ public class Student {
     private String className;
     private String phone;
 
-    // In MongoDB we store reference manually
-    private User user;
+    // Mongo stores only reference ID
+    private String userId;
 
     public Student() {}
 
-    public Student(String name, String rollNo, String className, String phone, User user) {
+    public Student(String name, String rollNo, String className, String phone, String userId) {
         this.name = name;
         this.rollNo = rollNo;
         this.className = className;
         this.phone = phone;
-        this.user = user;
+        this.userId = userId;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getRollNo() { return rollNo; }
+    public String getClassName() { return className; }
+    public String getPhone() { return phone; }
+    public String getUserId() { return userId; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRollNo() {
-        return rollNo;
-    }
-
-    public void setRollNo(String rollNo) {
-        this.rollNo = rollNo;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    public void setId(String id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    public void setRollNo(String rollNo) { this.rollNo = rollNo; }
+    public void setClassName(String className) { this.className = className; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public void setUserId(String userId) { this.userId = userId; }
 }
