@@ -1,0 +1,58 @@
+### Create User
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+
+### Create Parent User
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "parent1",
+  "password": "parent123",
+  "role": "PARENT"
+}
+
+### Create Student Profile
+POST http://localhost:8080/api/students/1
+Content-Type: application/json
+
+{
+  "name": "Rahul Sharma",
+  "rollNo": "23",
+  "className": "10-A",
+  "phone": "9876543210"
+}
+
+
+### Create Parent Profile
+POST http://localhost:8080/api/parents/6/1
+Content-Type: application/json
+
+{
+  "name": "Mr. Sharma",
+  "phone": "8888888888"
+}
+
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "parent1",
+  "password": "parent123"
+}
+
+### Access students using JWT
+GET http://localhost:8080/api/students
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYXJlbnQxIiwicm9sZSI6IlBBUkVOVCIsImlhdCI6MTc3MDc0MTMzMywiZXhwIjoxNzcwNzQ0OTMzfQ.YZSHBi0BJuwULY3M_l7snQd_N7urSPctiIgynQfjR_g
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
